@@ -1,0 +1,36 @@
+{{#if hasPages}}
+    <div class="pagination">
+        <ul>
+            <!--前十页-->
+            {{#if prevTenPage}}
+                <li><a href="#" {{action "loadMore" "prev"}} data-toggle="tooltip"   title="前十页"> &laquo;</a></li>
+            {{else}}
+                <li class="disabled" data-toggle="tooltip"   title="前十页" ><a>&laquo;</a></li>
+            {{/if}}
+
+            <!--前一页-->
+            {{#if prevPage}}
+                <li><a href="#" {{action "selectPage" prevPage }} data-toggle="tooltip"   title="前一页"> &lt;<!--&larr;--></a></li>
+            {{else}}
+                <li class="disabled" data-toggle="tooltip"   title="前一页" ><a>&lt;<!--&larr;--></a></li>
+            {{/if}}
+            <!--页码-->
+            {{#each pages itemController="page"}}
+                <li {{bind-attr class=active}}><a href="#" {{action "selectPage"  number }}>{{number}}</a></li>
+            {{/each}}
+            <!--后一页-->
+            {{#if nextPage}}
+                <li><a href="#" {{action "selectPage" nextPage  }} data-toggle="tooltip"   title="后一页">&gt;<!--&rarr;--></a></li>
+            {{else}}
+                <li class="disabled" data-toggle="tooltip"   title="后一页"><a>&gt;<!--&rarr;--></a></li>
+            {{/if}}
+
+            <!--后十页-->
+            {{#if nextTenPage}}
+                <li><a href="#" {{action "loadMore" "next"}} data-toggle="tooltip"   title="后十页"> &raquo;  </a></li>
+            {{else}}
+                <li class="disabled" data-toggle="tooltip"   title="后十页"><a>&raquo; </a></li>
+            {{/if}}
+        </ul>
+    </div>
+{{/if}}

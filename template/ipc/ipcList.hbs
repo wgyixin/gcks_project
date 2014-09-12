@@ -1,0 +1,381 @@
+<div class="padding-zero container-fluid">
+    <div class="row-fluid span12" style="padding-top:20px;">
+        <div class="box">
+{{#if operateRule}}
+            <div class="input-inline" style="padding-top:18px;" data-original-title>
+                &nbsp;&nbsp;&nbsp;<a href="#add" data-toggle="modal" class="btn btn-success" {{action "beforeAdd"}}><i class="icon-plus icon-white"></i> 新增</a>
+                <div class="modal hide ipc-modal" id="add"  data-backdrop='static'>
+                    <div class="modal-header">
+                        <a href="#" class="close" data-dismiss="modal" {{action "cancelAdd"}}>×</a>
+                        <h4>新增Ipc</h4>
+                    </div>
+
+                    <div class="ipc-modal-body" >
+                        <form style="position: relative;">
+                        <div class="control-group ">
+                            <label class="control-label help-inline ipcLabel">编号<i style="color:red">*</i></label>
+                            <div class="controls help-inline">
+                                {{view App.ValidataionTextField  id="add_sip" valueBinding="newIpc.sid" class="ipcInput" }}
+                            </div>
+
+                            <label class="control-label help-inline ipcLabel">名称<i style="color:red">*</i></label>
+                            <div class="controls help-inline">
+                                {{view App.ValidataionTextField  id="add_name" valueBinding="newIpc.name" class="ipcInput" }}
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label help-inline ipcLabel">IP</label>
+                            <div class="controls help-inline">
+                                {{view App.ValidataionTextField  id="add_ip_addr" valueBinding="newIpc.ip_addr" class="ipcInput" }}
+                            </div>
+                            <label for="area_name" class="control-label help-inline ipcLabel">地区</label>
+                            <div class="controls help-inline" style="width:180px;">
+                                <select id="area_name" class="ipcInput">
+                                    {{#each area in areaList}}
+                                        <option>{{area.name}}</option>
+                                    {{/each}}
+                                </select>
+
+
+
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label help-inline ipcLabel">X坐标</label>
+                            <div class="controls help-inline">
+                                {{input type="text" value= newIpc.position_x class="ipcInput"}}
+                            </div>
+
+                            <label class="control-label help-inline ipcLabel">Y坐标</label>
+                            <div class="controls help-inline">
+                                {{input type="text" value= newIpc.position_y class="ipcInput"}}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label help-inline ipcLabel">厂家</label>
+                            <div class="controls help-inline">
+                                {{input type="text" value= newIpc.factory class="ipcInput"}}
+                            </div>
+
+                            <label class="control-label help-inline ipcLabel">型号</label>
+                            <div class="controls help-inline">
+                                {{input type="text" value= newIpc.ipcModel class="ipcInput"}}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label help-inline ipcLabel">注册时间</label>
+                            <div class="controls help-inline">
+                                {{view App.ValidataionTextField id="add_installTime" valueBinding="newIpc.installTime" class="starttime ipcInput" }}
+                            </div>
+
+
+                            <label class="control-label help-inline ipcLabel">启用时间</label>
+                            <div class="controls help-inline">
+                                {{view App.ValidataionTextField  id="add_startTime" valueBinding="newIpc.startTime" class="endtime ipcInput" }}
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label help-inline ipcLabel">访问用户名</label>
+                            <div class="controls help-inline">
+                                {{input type="text" value= newIpc.reg_name class="ipcInput"}}
+                            </div>
+                            <label class="control-label help-inline ipcLabel">访问密码</label>
+                            <div class="controls help-inline">
+                                {{input type="text" value= newIpc.passwd class="ipcInput"}}
+                            </div>
+                        </div>
+                         <div class="control-group">
+                                <label for="add_protocol" class="control-label help-inline ipcLabel">协议</label>
+                                <div class="controls help-inline" style="width:180px;">
+                                    <select id="add_protocol" class="ipcInput">
+                                       <option>RTP_BOSCH</option>
+                                        <option>RTP_RFC3984</option>
+                                    </select>
+                                </div>
+                         </div>
+
+                         <div class="control-group">
+                             <label class="control-label help-inline ipcLabel">描述</label>
+                             <div class="controls help-inline">
+
+                                 {{textarea value= newIpc.descp class="ipcTextArea"}}
+                             </div>
+
+                        </div>
+
+
+                        </form>
+                    </div>
+
+                    <div class="form-actions modal-footer" style="text-align: center;">
+                        <button  class="btn-success" {{action "validateForAdd" }} >新增</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="btn-info" data-dismiss="modal" {{action "cancelAdd"}}>取消</button>
+                    </div>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <!--<a href="#addBatch" data-toggle="modal" class="btn btn-success"><i class="icon-plus icon-white"></i> 批量新增</a>-->
+                <div class="modal hide" id="addBatch" style="top:20%;" data-backdrop='static'>
+                    <div class="modal-header">
+                        <a href="#" class="close" data-dismiss="modal">×</a>
+                        <h4>批量新增</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <div class="control-group">
+                                <input type="file">
+                                <label class="control-label" >XXXX</label>
+                                <div class="controls">
+
+                                {{input type="text"}}
+                                </div>
+                            </div>
+                            <div class="control-group">
+                            <label class="control-label" >XXXX</label>
+                            <div class="controls">
+                            {{input type="text"}}
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="form-actions modal-footer" style="text-align: center;">
+                        <button class="btn-success" data-dismiss="modal">新增</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="btn-info" data-dismiss="modal">取消</button>
+                    </div>
+                </div>
+            </div>
+
+           {{/if}}
+
+
+            <div class="box-content">
+                <table class="table table-striped table-bordered bootstrap-datatable datatable table-hover">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center">状态
+                                <br>&nbsp;
+                                <br>&nbsp;
+                            </th>
+                            <th style="text-align: center">编号
+                                <br>
+                                {{input type='text' value=filter_sid class='width70'}}
+                            </th>
+                            <th style="text-align: center">名称
+                                <br>
+                                {{input type='text' value=filter_name class='width70'}}
+                            </th>
+                            <th style="text-align: center">地区
+                                <br>{{input type='text' value=filter_area_name class='width70'}}
+                            </th>
+
+                            <th style="text-align: center">注册时间
+                                <br>&nbsp;
+                                <br>&nbsp;
+                            </th>
+                            {{#if operateRule}}
+                            <th style="text-align: center">操作
+                                <br>&nbsp;
+                                <br>&nbsp;
+                            </th>
+                            {{/if}}
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {{#each paginatedContent}}
+                        <tr>
+                            <td style="text-align: center;vertical-align: middle;">
+                                {{#if alarmLength}}
+
+                                     <a {{action 'showAlarmMessage' this}}><p style="color: red;">
+                                         {{alarmLength}}
+                                     </p></a>
+                                {{else}}
+                                        <i class="ipc-online"></i>
+                                {{/if}}
+                            </td>
+                            <td style="text-align: center;vertical-align: middle;">
+                                <a data-toggle="tooltip" {{bind-attr title=detail}}>{{sid}}</a>
+                            </td>
+                            <td style="text-align: center;vertical-align: middle;">{{name}}</td>
+                            <td style="text-align: center;vertical-align: middle;">{{area_name}}</td>
+                            <td style="text-align: center;vertical-align: middle;">{{startTime}}</td>
+                        {{#if controller.operateRule}}
+                            <td style="text-align: center;vertical-align: middle;">
+                                <a class="btn btn-info" href="#" data-toggle="tooltip" title="编辑" {{action "beforeEdit" this}}>
+                                    <i class="icon-edit icon-white"></i>
+                                </a>
+                                {{delete-confirm title=sid action="deleteIpc" param=this}}
+
+                            </td>
+                            {{/if}}
+                        </tr>
+                        {{/each}}
+
+                    </tbody>
+                </table>
+                <!--分页控件 -->
+                {{page-number totalPages=totalPages count=count page=page currentTotalCounts=currentTotalCounts perPage=perPage selectPage="selectPage" loadMore="loadMore"}}
+
+
+            </div>
+
+            <div class="modal hide ipc-modal" id="edit"  data-backdrop='static'>
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal">×</a>
+                    <h4>修改IPC</h4>
+                </div>
+
+
+                <div class="ipc-modal-body" >
+                    <form style="position: relative;">
+                        <div class="control-group ">
+                            <label class="control-label help-inline ipcLabel">编号<i style="color:red">*</i></label>
+                            <div class="controls help-inline">
+                                {{view App.ValidataionTextField  id="edit_sip" valueBinding="edit_sid" class="ipcInput" disabled="true"}}
+                            </div>
+
+                            <label class="control-label help-inline ipcLabel">名称<i style="color:red">*</i></label>
+                            <div class="controls help-inline">
+                                {{view App.ValidataionTextField  id="edit_name" valueBinding="edit_name" class="ipcInput" disabled="true"}}
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label help-inline ipcLabel">IP</label>
+                            <div class="controls help-inline">
+                                {{view App.ValidataionTextField  id="edit_ip_addr" valueBinding="edit_ip_addr" class="ipcInput" }}
+                            </div>
+
+                        <label class="control-label help-inline ipcLabel">地区</label>
+                        <div class="controls help-inline">
+                            {{input type="text" value=edit_area_name disabled="true" class="ipcInput"}}
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label help-inline ipcLabel">X坐标</label>
+                        <div class="controls help-inline">
+                            {{input type="text" value=edit_position_x class="ipcInput"}}
+                        </div>
+
+                        <label class="control-label help-inline ipcLabel">Y坐标</label>
+                        <div class="controls help-inline">
+                            {{input type="text" value=edit_position_y class="ipcInput"}}
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label help-inline ipcLabel">厂家</label>
+                        <div class="controls help-inline">
+                            {{input type="text" value=edit_factory class="ipcInput"}}
+                        </div>
+
+                        <label class="control-label help-inline ipcLabel">型号</label>
+                        <div class="controls help-inline">
+                            {{input type="text" value=edit_ipcModel class="ipcInput"}}
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label help-inline ipcLabel">注册时间</label>
+                        <div class="controls help-inline">
+                            {{view App.ValidataionTextField  id="edit_installTime" valueBinding="edit_installTime" class="starttime ipcInput" }}
+                        </div>
+
+                        <label class="control-label help-inline ipcLabel">启用时间</label>
+                        <div class="controls help-inline">
+                            {{view App.ValidataionTextField id="edit_startTime" valueBinding="edit_startTime" class="endtime ipcInput" }}
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label help-inline ipcLabel">访问用户名</label>
+                        <div class="controls help-inline">
+                            {{input type="text" value=edit_reg_name class="ipcInput"}}
+                        </div>
+                        <label class="control-label help-inline ipcLabel">访问密钥</label>
+                        <div class="controls help-inline">
+                            {{input type="text" value=edit_passwd class="ipcInput"}}
+                        </div>
+                    </div>
+                        <div class="control-group">
+                            <label for="edit_protocol" class="control-label help-inline ipcLabel">协议</label>
+                            <div class="controls help-inline" style="width:180px;">
+                                <select id="edit_protocol" class="ipcInput">
+                                    <option >RTP_BOSCH</option>
+                                    <option >RTP_RFC3984</option>
+                                </select>
+                            </div>
+                        </div>
+                    <div class="control-group">
+                        <label class="control-label help-inline ipcLabel">描述</label>
+                        <div class="controls help-inline">
+                            {{textarea value=edit_descp class="ipcTextArea"}}
+                        </div>
+                    </div>
+                    </form>
+                </div>
+
+
+                <div class="form-actions modal-footer" style="text-align: center;">
+                    <button {{action "validateForEdit" }} class="btn-success" >修改</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn-info" data-dismiss="modal">取消</button>
+
+                </div>
+            </div>
+        </div>
+        <!--/span-->
+
+    </div>
+
+    <div class="modal hide " id="alarmMessage" style="width: 1200px;left: 25%;" data-backdrop='static'>
+        <div class="modal-header">
+            <a href="#" class="close" data-dismiss="modal">×</a>
+            <h4>告警信息——{{curIpc}}</h4>
+        </div>
+
+
+        <div class="modal-body" >
+            <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                <thead>
+                <tr>
+                    <th>命令类型</th>
+                    <th>源设备编码</th>
+                    <th>扩展信息</th>
+                    <th>纬度信息</th>
+                    <th>经度信息</th>
+                    <th>命令序列号</th>
+                    <th>工作状态</th>
+                    <th>报警内容</th>
+                    <th>报警方式</th>
+                    <th>报警级别</th>
+                    <th>报警时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each alarm in alarmList}}
+                    <tr>
+                        <td>{{alarm.cmdType}}</td>
+                        <td>{{alarm.deviceID}}</td>
+                        <td>{{alarm.info}}</td>
+                        <td>{{alarm.latitude}}</td>
+                        <td>{{alarm.longitude}}</td>
+                        <td>{{alarm.SN}}</td>
+                        <td>{{alarm.status}}</td>
+                        <td>{{alarm.alarmDescription}}</td>
+                        <td>{{alarm.alarmMethod}}</td>
+                        <td>{{alarm.alarmPriority}}</td>
+                        <td>{{alarm.alarmTime}}</td>
+
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

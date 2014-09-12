@@ -1,0 +1,23 @@
+
+    <div class=" delete-confirm modal hide " style="top:20%;" data-backdrop='static'>
+        <div class="modal-header">
+            <a  class="close" data-dismiss="modal" >×</a>
+            <h4 style="text-align: left;">删除{{title}}</h4>
+        </div>
+
+        <div class="modal-body" >
+            <p>确定要删除么？</p>
+
+
+        </div>
+
+        <div class="form-actions modal-footer" style="text-align: center;">
+            <button class="btn-success" data-dismiss="modal" {{action "confirm"}}>确定</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button  class="btn-info" data-dismiss="modal">取消</button>
+        </div>
+    </div>
+
+    <a class="btn btn-danger" data-toggle="tooltip" title="删除" {{action "showConfirmation"  }}>
+        <i class="icon-trash icon-white"></i>
+    </a>

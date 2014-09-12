@@ -1,0 +1,100 @@
+﻿
+
+<div class="container-fluid" id="ocx1">
+    <table >
+
+        <tr >
+            <td valign="top" style="padding-top: 30px;">
+                资源列表：
+                <hr />
+                <a href="javascript:void(0)" onclick="PlayRealVideo('44030300001320000402', '44030300001320000402', '测试摄像头402')">
+                    测试摄像头402</a>
+            </td>
+            <td style="padding-top:30px;padding-left: 30px;" >
+                <object classid="clsid:9bd174ee-0794-4c5b-b9e3-7845d6de41fb" id="Ocx">
+                </object>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                分屏：
+            </td>
+            <td>
+                <hr />
+                <input type="button" value="1分屏" onclick="SetPlayWndNum(1)" />
+                <input type="button" value="4分屏" onclick="SetPlayWndNum(4)" />
+                <input type="button" value="6分屏" onclick="SetPlayWndNum(6)" />
+                <input type="button" value="6分屏" onclick="SetPlayWndNum(7)" />
+                <input type="button" value="8分屏" onclick="SetPlayWndNum(8)" />
+                <input type="button" value="9分屏" onclick="SetPlayWndNum(9)" />
+                <input type="button" value="全屏" onclick="SetPlayWndNum(0)" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                配置信息：
+            </td>
+            <td>
+                <hr />
+                服务器IP：<input type="text" value="10.7.10.189" id="ServerIp" />
+                服务器端口：<input type="text" value="5060" id="ServerPort" />
+                服务器编码：<input type="text" value="44030300002000000000" id="ServerCode" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                用户编码（用户名）：<input type="text" value="44030300004000000101" id="ClientCode" />
+                用户密码：<input type="text" value="12345678" id="ClientPass" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                相关操作：
+            </td>
+            <td>
+                <input type="button" value="登录" onclick="Login()" />
+                <input type="button" value="停止预览" onclick="StopRealVideo()" />
+                <input type="button" value="获得分屏数" onclick="GetWndNum()" />
+                <input type="button" value="获得当前操作窗口" onclick="GetSelWnd()" />
+                <input type="button" value="设置当前操作窗口" onclick="SetSelWnd(0)" />
+                <input type="button" value="获得当前窗口通道编码" onclick="GetCamCodeOfWnd()" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                云台控制：
+            </td>
+            <td>
+                控制速度：<select id="sel">
+                <option value="10,1">慢</option>
+                <option value="65,4">较慢</option>
+                <option value="125,7" selected>中</option>
+                <option value="185,12">较快</option>
+                <option value="245,15">快</option>
+            </select>
+                <input type="button" value="上" onclick="PTZControl(8)" />
+                <input type="button" value="下" onclick="PTZControl(4)" />
+                <input type="button" value="左" onclick="PTZControl(2)" />
+                <input type="button" value="右" onclick="PTZControl(1)" />
+                <input type="button" value="左上" onclick="PTZControl(10)" />
+                <input type="button" value="左下" onclick="PTZControl(6)" />
+                <input type="button" value="右上" onclick="PTZControl(9)" />
+                <input type="button" value="右下" onclick="PTZControl(5)" />
+                <input type="button" value="缩小" onclick="PTZControl(32)" />
+                <input type="button" value="放大" onclick="PTZControl(16)" />
+                <input type="button" value="光圈远" onclick="PTZControl(68)" />
+                <input type="button" value="光圈近" onclick="PTZControl(72)" />
+                <input type="button" value="聚焦远" onclick="PTZControl(66)" />
+                <input type="button" value="聚焦近" onclick="PTZControl(65)" />
+                <input type="button" value="停止" onclick="PTZControl(0)" />
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+

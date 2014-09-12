@@ -1,0 +1,71 @@
+<div class="container-fluid">
+<div class="row-fluid span10 offset1" style="padding-top:20px;" >
+<div class="box">
+    <div class="box-content" >
+        <form class="form-horizontal userinfo-form"  >
+            <div class="control-group ">
+                <label class="control-label" for="username">用户名</label>
+                <div class="controls" >
+
+                    {{input type="text" value=username  disabled=true id="username"}}
+                    <span class=" help-inline"></span>
+                </div>
+
+            </div>
+            <div class="control-group">
+                <label for="name" class="control-label " >真实姓名</label>
+                <div class="controls " >
+                    {{input type="text" value=name }}
+                    <span class=" help-inline"  ></span>
+                </div>
+            </div>
+
+            <div class="control-group ">
+                <label class="control-label " >当前密码</label>
+                <div class="controls ">
+                    {{input type="password" value=oldpassword }}
+                    <span id="pwdError" class=" help-inline hide" style="color: #b94a48;">与原始密码不符</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label " >新密码</label>
+                <div class="controls ">
+                    {{input type="password" value=newPassword }}
+                    <span class=" help-inline"  ></span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label " >重复新密码</label>
+                <div class="controls ">
+                    {{input type="password" value=rePassword }}
+                    <span id="repwdError" class="help-inline hide" style="color: #b94a48;">两次输入的密码不一致</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label " >电话</label>
+                <div class="controls">
+                    {{input type="text" value=tel }}
+                    <span class=" help-inline hide"  id="telError" style="color: #b94a48;">请输入正确的11位手机号</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label " >邮箱</label>
+                <div class="controls ">
+                    {{input type="text"  value=e_mail }}
+                    <span class=" help-inline hide"  id="emailError" style="color: #b94a48;">请输入正确的邮箱</span>
+                </div>
+            </div>
+        </form>
+        <div class="form-actions modal-footer" style="text-align: center;">
+            <button class="btn-success"  {{action "beforeSave"}}>保存</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button  class="btn-info"  {{action "cancel"}}>取消</button>
+        </div>
+        </div>
+
+    </div>
+
+
+</div>
+    </div>
+

@@ -1,0 +1,153 @@
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <h1 class="page-header" style="font-size:24px;color: #faa732;">视频综合管理应用平台</h1>
+
+        <div class="navbar navbar-static-top" style="font-size:16px;">
+            <div class="navbar-inner">
+                <ul class="nav">
+
+                <!--{{#each}}-->
+                    <!--<li class="main-link" {{bind-attr id=id}}>-->
+                    <!--{{#link-to hrefTo }}{{name}}{{/link-to}}-->
+
+                    <!--</li>-->
+                        <!--{{/each}}-->
+
+                    {{#each}}
+                        <li class="dropdown">
+                            <a class="dropdown-toggle active"
+                               data-toggle="dropdown"
+                                {{bind-attr href=hrefTo}}
+                                    >
+                                {{name}}
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                {{#each object in childItem}}
+                                    <li>
+                                        <!--<a  {{bind-attr href=hrefTo}}>{{object.name}}</a>-->
+                                        {{#link-to object.hrefTo }}{{object.name}}{{/link-to}}
+                                    </li>
+
+
+                                {{/each}}
+                            </ul>
+                        </li>
+                    {{/each}}
+
+
+
+
+                    <li class="main-link" id="realtime">
+                        {{#link-to 'realtime'}}视频监控{{/link-to}}
+                    </li>
+                    <li class="main-link" id="gis">
+                        {{#link-to 'gis'}}地图监控{{/link-to}}
+                    </li>
+                    <li class="main-link" id="history">
+                        {{#link-to 'history'}}历史视频{{/link-to}}
+                    </li>
+                    <li class="main-link" id="statistics">
+                        {{#link-to 'imgStatistics'}}统计报表{{/link-to}}
+                    </li>
+                    {{#if hasIpcRule}}
+                        <li class="main-link" id="ipcs">
+                            {{#link-to 'ipcs'}}摄像头管理{{/link-to}}
+                        </li>
+                    {{/if}}
+                    <li class="main-link" id="ipcLink">
+                        {{#link-to 'ipcLink'}}连接管理{{/link-to}}
+                    </li>
+                    {{#if hasTaskRule}}
+                        <li class="main-link" id="record">
+                            {{#link-to 'record'}}录制管理{{/link-to}}
+                        </li>
+                    {{/if}}
+                    <li class="main-link" id="operation">
+                        {{#link-to 'service'}}运维管理{{/link-to}}
+                    </li>
+                    <li class="main-link" id="system">
+                        {{#link-to 'user'}}系统管理{{/link-to}}
+                    </li>
+
+
+                </ul>
+
+                <ul class="nav pull-right">
+                    <li><a><small>欢迎您,Admin</small></a></li>
+                    <li>{{#link-to 'login' }}退出{{/link-to}}</li>
+                    <li><a href="#">修改密码</a> </li>
+
+                </ul>
+            </div>
+        </div>
+        {{outlet}}
+    </div>
+</div>
+
+
+{{#if videoRule}}
+    <li class="main-link" id="realtime">
+        {{#link-to 'realtime'}}视频监控{{/link-to}}
+    </li>
+{{/if}}
+<!--<li class="main-link" id="gis">-->
+<!--{{#link-to 'gis'}}地图监控{{/link-to}}-->
+<!--</li>-->
+{{#if historyRule}}
+    <li class="main-link" id="history">
+        {{#link-to 'history'}}历史视频{{/link-to}}
+    </li>
+{{/if}}
+
+<!--<li class="main-link" id="statistics">-->
+<!--{{#link-to 'imgStatistics'}}统计报表{{/link-to}}-->
+<!--</li>-->
+{{#if ipcRule}}
+    <li class="main-link" id="ipcs">
+        {{#link-to 'ipcs'}}摄像头管理{{/link-to}}
+    </li>
+{{/if}}
+{{#if linkRule}}
+    <li class="main-link" id="ipcLink">
+        {{#link-to 'ipcLink'}}连接管理{{/link-to}}
+    </li>
+{{/if}}
+{{#if taskRule}}
+    <li class="main-link" id="record">
+        {{#link-to 'plans'}}录制管理{{/link-to}}
+    </li>
+{{/if}}
+{{#if operationRule}}
+    <li class="main-link" id="operation">
+        {{#link-to 'service'}}运维管理{{/link-to}}
+    </li>
+{{/if}}
+{{#if sysRule}}
+    <li class="main-link" id="system">
+        {{#link-to 'user'}}系统管理{{/link-to}}
+    </li>
+{{/if}}
+<!--<li class="main-link" id="userinfo">-->
+<!--{{#link-to 'userinfo'}}个人信息{{/link-to}}-->
+<!--</li>-->
+
+
+
+<ul class="nav pull-right nav-top">
+    <li ><a><small>欢迎您,{{curUser}}</small></a></li>
+    <li class="main-link"><a {{action 'logout'}}>退出</a></li>
+    <!--<li class="main-link"><a href="#">修改密码</a> </li>-->
+
+    <!--<li class="dropdown">-->
+    <!--<a class="dropdown-toggle"-->
+    <!--data-toggle="dropdown">欢迎您,{{curUser}}<span class="caret"></span></a>-->
+
+    <!--<ul class="dropdown-menu">-->
+    <!--<li class="main-link"><a {{action 'logout'}}>退出</a></li>-->
+    <!--&lt;!&ndash;<li class="main-link">{{#link-to 'userinfo'}}个人信息{{/link-to}}</li>&ndash;&gt;-->
+    <!--</ul>-->
+    <!--</li>-->
+
+</ul>

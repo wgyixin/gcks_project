@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://cxf.apache.org/jaxrs 
+    http://cxf.apache.org/schemas/jaxrs.xsd">
+   
+     
+    <!-- 用户服务 -->
+    <jaxrs:server id="user" address="/user">
+        <jaxrs:serviceBeans>
+            <ref bean="UserService"/>                    
+        </jaxrs:serviceBeans>
+       	<jaxrs:providers>  
+            <ref bean="jsonProvider"/>  
+            <ref bean="authorizationFilter"/>
+    	</jaxrs:providers>
+    </jaxrs:server>
+    <!-- 告警服务 -->
+    <jaxrs:server id="alarm" address="/alarm">
+        <jaxrs:serviceBeans>
+            <ref bean="AlarmService"/>                    
+        </jaxrs:serviceBeans>
+       	<jaxrs:providers>  
+            <ref bean="jsonProvider"/>  
+            <ref bean="authorizationFilter"/>
+    	</jaxrs:providers>  
+    </jaxrs:server>
+    <!-- 报表服务 -->
+   <jaxrs:server id="report" address="/report">
+        <jaxrs:serviceBeans>
+            <ref bean="ReportService"/>                    
+        </jaxrs:serviceBeans>
+       	<jaxrs:providers>  
+            <ref bean="jsonProvider"/>  
+            <ref bean="authorizationFilter"/>
+    	</jaxrs:providers>  
+    </jaxrs:server>
+    <!-- 资源服务-->
+    <jaxrs:server id="resource" address="/resource">
+        <jaxrs:serviceBeans>
+            <ref bean="ResourceService"/>                    
+        </jaxrs:serviceBeans>
+       	<jaxrs:providers>  
+            <ref bean="jsonProvider"/>  
+            <ref bean="authorizationFilter"/>
+    	</jaxrs:providers>  
+    </jaxrs:server>
+    <!-- 视频服务 -->
+    <jaxrs:server id="video" address="/video">
+        <jaxrs:serviceBeans>
+            <ref bean="VideoService"/>                    
+        </jaxrs:serviceBeans>
+       	<jaxrs:providers>  
+            <ref bean="jsonProvider"/>  
+            <ref bean="authorizationFilter"/>
+    	</jaxrs:providers>  
+    </jaxrs:server>
+    <!-- 预案服务 -->
+    <jaxrs:server id="plan" address="/plan">
+        <jaxrs:serviceBeans>
+            <ref bean="TourService"/>                    
+        </jaxrs:serviceBeans>
+       	<jaxrs:providers>  
+            <ref bean="jsonProvider"/>  
+            <ref bean="authorizationFilter"/>
+    	</jaxrs:providers>  
+    </jaxrs:server>
+    <!-- 系统管理服务 -->
+    <jaxrs:server id="sysmanage" address="/sysmanage">
+        <jaxrs:serviceBeans>
+            <ref bean="SysManService"/>                    
+        </jaxrs:serviceBeans>
+       	<jaxrs:providers>  
+            <ref bean="jsonProvider"/>  
+            <ref bean="authorizationFilter"/>
+    	</jaxrs:providers>  
+    </jaxrs:server>
+    <!-- 接入服務 -->
+    <jaxrs:server id="access" address="/access">
+        <jaxrs:serviceBeans>
+            <ref bean="accessService"/>                    
+        </jaxrs:serviceBeans>
+       	<jaxrs:providers>  
+            <ref bean="jsonProvider"/>  
+            <ref bean="authorizationFilter"/>
+    	</jaxrs:providers>  
+    </jaxrs:server>
+    <jaxrs:server id="search" address="/search">
+        <jaxrs:serviceBeans>
+            <ref bean="searchService"/>                    
+        </jaxrs:serviceBeans>
+       	<jaxrs:providers>  
+            <ref bean="jsonProvider"/>  
+            <ref bean="authorizationFilter"/>
+    	</jaxrs:providers>  
+    </jaxrs:server>
+    <!-- 服務管理 -->
+    <jaxrs:server id="servicemanage" address="/servicemanage">
+        <jaxrs:serviceBeans>
+            <ref bean="manageService"/>                    
+        </jaxrs:serviceBeans>
+       	<jaxrs:providers>  	` 
+            <ref bean="jsonProvider"/>  
+            <ref bean="authorizationFilter"/>
+    	</jaxrs:providers>  
+    </jaxrs:server>
+   	<bean id="jsonProvider" class="org.apache.cxf.jaxrs.provider.json.JSONProvider">  
+        <property name="dropRootElement" value="true"/>  
+        <property name="dropCollectionWrapperElement" value="true"/>  
+        <property name="serializeAsArray" value="true"/>  
+	</bean> 
+	<!-- 过滤器 -->
+	<bean id="authorizationFilter" class="cn.gcks.video.authorizationfilter.AuthorizationRequestHandler"/>
+	<!-- 资源服务 -->
+   	<bean id="UserService" class="cn.gcks.video.web.rest.service.UserService"/>
+ 	<bean id="AlarmService" class="cn.gcks.video.web.rest.service.AlarmService"/>  
+   	<bean id="ReportService" class="cn.gcks.video.web.rest.service.ReportService"/>
+  	<bean id="ResourceService" class="cn.gcks.video.web.rest.service.ResourceService"/>
+  	<bean id="VideoService" class="cn.gcks.video.web.rest.service.VideoService"/>
+  	<bean id="TourService" class="cn.gcks.video.web.rest.service.TourService"/>
+  	<bean id="SysManService" class="cn.gcks.video.web.rest.service.SysManService"/>
+  	<bean id="accessService" class="cn.gcks.video.web.rest.service.AccessService"/>
+  	<bean id="manageService" class = "cn.gcks.video.web.rest.service.ManageService"/>
+  	<bean id="searchService" class = "cn.gcks.video.web.rest.service.SearchService"/>
+</beans>
+

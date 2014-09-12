@@ -1,0 +1,21 @@
+{{#if hasPages}}
+    <div class="pagination">
+        <ul>
+            {{#if prevPage}}
+                <li><a href="#" {{action "selectPage" prevPage }}>&lt;<!--&larr;--></a></li>
+            {{else}}
+                <li class="disabled"><a>&lt;<!--&larr;--></a></li>
+            {{/if}}
+
+            {{#each pages itemController="page"}}
+                <li {{bind-attr class=active}}><a href="#" {{action "selectPage"  number }}>{{number}}</a></li>
+            {{/each}}
+
+            {{#if nextPage}}
+                <li><a href="#" {{action "selectPage" nextPage  }}>&gt;<!--&rarr;--></a></li>
+            {{else}}
+                <li class="disabled"><a>&gt;<!--&rarr;--></a></li>
+            {{/if}}
+        </ul>
+    </div>
+{{/if}}

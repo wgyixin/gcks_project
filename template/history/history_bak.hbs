@@ -1,0 +1,140 @@
+<div class="container-fluid">
+<div class="row-fluid span10 offset1" style="padding-top:20px;" >
+
+    <!--<select multiple="multiple"  style="height: 500px;">-->
+        <!--{{#each}}-->
+    <!--<option>{{sid}}</option>-->
+        <!--{{/each}}-->
+    <!--</select>-->
+<div class="box">
+<div class="input-inline" style="padding-top:18px;" data-original-title>
+
+
+    <label class="help-inline">开始时间:  </label>
+    {{input class="starttime" type="text"     data-date-format=" yyyy-mm-dd hh:ii"  data-date-viewMode="1" data-date-minViewMode="0"  data-date-weekStart="1" value=search_startTime}}
+    <label class="help-inline">结束时间:  </label>
+    {{input class="endtime" type="text"     data-date-format="yyyy-mm-dd hh:ii"  data-date-viewMode="1" data-date-minViewMode="0"  data-date-weekStart="1" value=search_endTime}}
+    &nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-success" {{action 'search'}}><i class="icon-search icon-white"></i> 查询</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</div>
+<div class="box-content">
+    <table class="table table-striped table-bordered bootstrap-datatable datatable table-condensed table-hover">
+        <thead>
+        <tr>
+            <th style="text-align: center">文件编码
+                <br>&nbsp;<br>&nbsp;
+            </th>
+            <th style="text-align: center">文件URL
+                <br>&nbsp;<br>&nbsp;
+            </th>
+            <th style="text-align: center">媒体类型
+                <br>&nbsp;<br>&nbsp;
+            </th>
+            <th style="text-align: center">媒体编码
+                <br>&nbsp;<br>&nbsp;
+            </th>
+            <th style="text-align: center">大小
+                <br>&nbsp;<br>&nbsp;
+            </th>
+            <th style="text-align: center">媒体开始时间
+                <br>&nbsp;<br>&nbsp;
+            </th>
+            <th style="text-align: center">媒体时长
+                <br>&nbsp;<br>&nbsp;
+            </th>
+            <th style="text-align: center">RN
+                <br>&nbsp;<br>&nbsp;
+            </th>
+            <th style="text-align: center">任务
+                <br>&nbsp;<br>&nbsp;
+            </th>
+            <th style="text-align: center">数据源
+                <br>
+                {{input type='text' value=filter_ipc class='width70'}}
+            </th>
+            <th style="text-align: center">操作
+                <br>&nbsp;<br>&nbsp;
+            </th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {{#each paginatedContent}}
+            <tr>
+                <td style="text-align: center">
+                    <a href="#" data-toggle="tooltip"  title="点击下载">{{id}}</a>
+                </td>
+                <td style="text-align: center">{{dataPosition}}</td>
+                <td style="text-align: center">{{mediaType}}</td>
+                <td style="text-align: center">{{coding}}</td>
+                <td style="text-align: center">{{size}}</td>
+                <td style="text-align: center">{{beginTime}}</td>
+                <td style="text-align: center">{{timeLength}}</td>
+                <td style="text-align: center">{{rn_name}}</td>
+                <td style="text-align: center">{{task_name}}</td>
+                <td style="text-align: center">{{ipc_sid}}</td>
+                <td style="text-align: center">
+
+                    <a class="btn btn-info" href="#" data-toggle="tooltip" title="播放" >
+                        <i class=" icon-play icon-white"></i>
+                    </a>
+
+                    <!--<a class="btn btn-danger" data-toggle="tooltip" title="删除" {{action "deleteVideo" this }}>-->
+                        <!--<i class="icon-trash icon-white"></i>-->
+
+                    <!--</a>-->
+                    {{delete-confirm title=id action="deleteVideo" param=this}}
+
+                </td>
+            </tr>
+        {{/each}}
+
+        </tbody>
+    </table>
+{{#if hasPages}}
+    <div class="pagination">
+        <ul>
+            {{#if prevTenPage}}
+                <li><a href="#" {{action "loadMore" "prev"}} data-toggle="tooltip"   title="前十页"> &laquo;</a></li>
+            {{else}}
+                <li class="disabled" data-toggle="tooltip"   title="前十页" ><a>&laquo;</a></li>
+            {{/if}}
+
+            <!---->
+            {{#if prevPage}}
+                <li><a href="#" {{action "selectPage" prevPage }} data-toggle="tooltip"   title="前一页"> &larr;</a></li>
+            {{else}}
+                <li class="disabled" data-toggle="tooltip"   title="前一页" ><a>&larr;</a></li>
+            {{/if}}
+
+            {{#each pages itemController="page"}}
+                <li {{bind-attr class=active}}><a href="#" {{action "selectPage"  number }}>{{number}}</a></li>
+            {{/each}}
+
+            {{#if nextPage}}
+                <li><a href="#" {{action "selectPage" nextPage  }} data-toggle="tooltip"   title="后一页"> &rarr; </a></li>
+            {{else}}
+                <li class="disabled" data-toggle="tooltip"   title="后一页"><a>&rarr;</a></li>
+            {{/if}}
+
+            <!---->
+            {{#if nextTenPage}}
+                <li><a href="#" {{action "loadMore" "next"}} data-toggle="tooltip"   title="后十页"> &raquo;  </a></li>
+            {{else}}
+                <li class="disabled" data-toggle="tooltip"   title="后十页"><a>&raquo; </a></li>
+            {{/if}}
+
+        </ul>
+    </div>
+{{/if}}
+
+</div>
+
+</div><!--/span-->
+
+</div>
+
+
+</div>
+

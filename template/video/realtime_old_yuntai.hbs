@@ -1,0 +1,271 @@
+﻿<div class="padding-zero container-fluid">
+    <!--左侧资源列表-->
+    <div class="row-fluid span2 " style="padding-top:30px;">
+        <div class="row-fluid span10 ">
+
+            <div class="search-div">
+                <div class="span9">
+                    <!--<label class="help-inline width30">地区</label>-->
+                    {{view App.SearchIpcTextField valueBinding="search_area" placeholder="输入地区名" class="ipc-resource-search"}}
+                    <!--<label class="help-inline width30">摄像头</label>-->
+                    {{input type="text" placeholder="输入摄像头名"class="ipc-resource-search" value=search_ipc}}
+                </div>
+                <div class="span3">
+                    <br>
+                    <br>
+                    <button class="btn btn-info" {{action "searchIpc"}}><i class="icon-search"></i>
+                    </button>
+                </div>
+
+            </div>
+
+
+            <!--<div style="width:120%;height: 500px;overflow: auto; border:1px solid #DEDEDE;">-->
+            <div class="ipc-resource-div">
+                <ul class="history-ul nav nav-tabs nav-stacked sidebar-nav main-menu">
+                    {{#each ipcList}}
+
+                    <li class="ajax-link" {{bind-attr id=sid}}>
+                        <a href="javascript:void(0)" {{action "playRealVideo" this}}>
+                                {{#if is_live}}
+                                    <i class="ipc-online"></i>
+                                {{else}}
+                                    <i class="ipc-offline"></i>
+                                {{/if}}
+                                {{name}}
+
+                            </a>
+                    </li>
+                    {{/each}}
+                    <!--onclick="PlayRealVideo('44030300001320000402', '44030300001320000402', '测试摄像头402')"-->
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--视频框-->
+    <div id="play" class="row-fluid span8" style="padding-top:30px;z-index: -1">
+        <div class="nav pull-right">
+                <button class="btn"  onclick="SetPlayWndNum(1)">1分屏</button>
+                 <button class="btn"  onclick="SetPlayWndNum(4)" >4分屏</button>
+                <button class="btn"  onclick="SetPlayWndNum(6)" >6分屏</button>
+                 <button class="btn"  onclick="SetPlayWndNum(7)" >6分屏</button>
+                 <button class="btn"  onclick="SetPlayWndNum(8)" >8分屏</button>
+                 <button class="btn"  onclick="SetPlayWndNum(9)" >9分屏</button>
+                 <button class="btn"  onclick="SetPlayWndNum(0)" >全屏</button>
+            </div>
+        <!--cab包打包下载-->
+        <object classid="clsid:9bd174ee-0794-4c5b-b9e3-7845d6de41fb" id="Ocx" codebase="Client_ocx.cab#version=1,0,0,9"  >
+        </object>
+
+
+
+
+    </div>
+    <!--控制框-->
+    <div class="row-fluid span2 " style="padding-top:30px;">
+
+        <!--<table>-->
+            <!--<tr>-->
+                <!--分屏：-->
+                <!--<br>-->
+            <!--</tr>-->
+
+            <!--<tr>-->
+
+
+                <!--<input type="button" value="1分屏" onclick="SetPlayWndNum(1)" />-->
+                <!--<input type="button" value="4分屏" onclick="SetPlayWndNum(4)" />-->
+                <!--<input type="button" value="6分屏" onclick="SetPlayWndNum(6)" />-->
+                <!--<input type="button" value="6分屏" onclick="SetPlayWndNum(7)" />-->
+                <!--<input type="button" value="8分屏" onclick="SetPlayWndNum(8)" />-->
+                <!--<input type="button" value="9分屏" onclick="SetPlayWndNum(9)" />-->
+                <!--<input type="button" value="全屏" onclick="SetPlayWndNum(0)" />-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<hr/>-->
+            <!--</tr>-->
+
+        <!--</table>-->
+        <div class="tabbable">
+            {{#if isSelected_Tour}}
+                 <label class="help-inline" style="color: red">当前预案：</label>{{curTour.tour_name}}
+            {{else}}
+                  <label class="help-inline" style="color: red">未选中预案</label>
+            {{/if}}
+            <br>
+            <br>
+            <ul class="nav nav-pills">
+                <li class="active"><a href="#tab1" data-toggle="tab" style="font-size: 13px;">轮巡</a></li>
+                <li><a href="#tab2" data-toggle="tab" style="font-size: 13px;" {{action 'getTourList'}}>预案</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1" style="height: 300px;">
+                    <input type="checkbox" name="is_lunxun"> <small>是否配置轮巡</small>
+                    <br>
+                    <br>
+                    <select id="lunxun_selector" multiple="multiple" style="height: 158px;" >
+                        {{#each ipc in ipcTourList}}
+                            <option>{{ipc.name}}</option>
+                        {{/each}}
+                    </select>
+                    <br>
+                    <label for="interval-time" class="help-inline">轮巡间隔：</label>
+                    <!--<input class="input-mini" id="interval-time22" value="10">-->
+                    <select id="interval-time" style="width: 40%;">
+                        <option>10</option>
+                        <option>30</option>
+                        <option>60</option>
+                        <option>90</option>
+                        <option>120</option>
+                    </select>
+
+                    <label class="help-inline">秒</label>
+                    <br>
+                    <br>
+                    <button class="btn" {{action 'startTour'}}>开始</button>
+                    <button class="btn" {{action 'endTour'}}>结束</button>
+                    <button class="btn" {{action 'saveAsTour'}}>存为预案</button>
+                </div>
+                <div class="tab-pane" id="tab2" style="height: 300px;">
+                    <button class="btn" {{action 'deSelectTour'}}>取消选中</button>
+                    <br>
+                    <br>
+                    <select id="yuan_selector" multiple="multiple" style="height: 210px;">
+
+                        {{#each tour in tourList}}
+                            <option>{{tour.tour_name}}</option>
+                        {{/each}}
+                    </select>
+                    <br>
+                    <button class="btn" {{action 'beforeAddTour'}}>新建</button>
+                    <button class="btn" {{action 'deleteTour'}}>删除</button>
+                </div>
+            </div>
+        </div>
+        
+        {{#if ptzRule }}
+            <hr/>
+        <div id="yuntai">
+            <p>云台控制</p>
+            <label>控制速度：</label>
+            <select id="sel" class="span8">
+                <option value="10,1">慢</option>
+                <option value="65,4">较慢</option>
+                <option value="125,7" selected>中</option>
+                <option value="185,12">较快</option>
+                <option value="245,15">快</option>
+            </select>
+            <br>
+
+
+            <div style="width:232px;">
+                <div style="padding-bottom: 10px;">
+                    <a href="javascript:void(0)" onmouseup="PTZControl(0)" onmousedown="PTZControl(10)" title="左上">
+                        <img src="Asserts/img/yuntai/icon_leftup.png" style="width: 45px;height: 45px;">
+                    </a>
+
+                    <a style="padding-left: 12px;padding-right: 16px;" href="javascript:void(0)" onmouseup="PTZControl(0)" onmousedown="PTZControl(8)" title="上">
+                        <img src="Asserts/img/yuntai/icon_up.png" style="width: 45px;height: 45px;">
+                    </a>
+
+                    <a href="javascript:void(0)" onmouseup="PTZControl(0)" onmousedown="PTZControl(9)" title="右上">
+                        <img src="Asserts/img/yuntai/icon_rightup.png" style="width: 45px;height: 45px;">
+                    </a>
+                </div>
+
+                <!--第二组-->
+                <div style="padding-bottom: 10px;">
+                    <a href="javascript:void(0)" onmouseup="PTZControl(0)" onmousedown="PTZControl(2)" title="左">
+                        <img src="Asserts/img/yuntai/icon_left.png" style="width: 45px;height: 45px;">
+                    </a>
+
+                    <div style="width: 70px;;height: 70px;;" class="help-inline yaogan">
+                        <a href="javascript:void(0)" onmouseup="PTZControl(0)" onmousedown="PTZControl(66)" title="远焦">
+                            <img src="Asserts/img/yuntai/icon_guangquangbig.png" style="width: 30px;height: 30px;">
+                        </a>
+                        <a href="javascript:void(0)" onmouseup="PTZControl(0)" onmousedown="PTZControl(65)" title="近焦">
+                            <img src="Asserts/img/yuntai/icon_guangquangsmall.png" style="width: 30px;height: 30px;">
+                        </a>
+                        <a href="javascript:void(0)" onmouseup="PTZControl(0)" onmousedown="PTZControl(32)" title="缩小">
+                            <img src="Asserts/img/yuntai/icon_zoomin.png" style="width: 30px;height: 30px;">
+                        </a>
+                        <a href="javascript:void(0)" onmouseup="PTZControl(0)" onmousedown="PTZControl(16)" title="放大">
+                            <img src="Asserts/img/yuntai/icon_zoomout.png" style="width: 30px;height: 30px;">
+                        </a>
+                        <!--在4张图片中间显示 使用 position -->
+                        <a style="position: relative; top:-50px; left: 12px;" href="javascript:void(0)"  >
+                            <img src="Asserts/img/yuntai/icon_yaogan.png" style="width: 40px;height: 40px;">
+                        </a>
+
+
+                    </div>
+
+
+
+                    <a href="javascript:void(0)" onmouseup="PTZControl(0)" onmousedown="PTZControl(1)" title="右">
+                        <img src="Asserts/img/yuntai/icon_right.png" style="width: 45px;height: 45px;">
+                    </a>
+                </div>
+                <!--下一组-->
+                <div style="padding-bottom: 10px;">
+                    <a href="javascript:void(0)" onmouseup="PTZControl(0)" onmousedown="PTZControl(6)" title="左下">
+                        <img src="Asserts/img/yuntai/icon_leftdown.png" style="width: 45px;height: 45px;">
+                    </a>
+
+                    <a style="padding-left: 12px;padding-right: 16px;" href="javascript:void(0)" onmouseup="PTZControl(0)" onmousedown="PTZControl(4)" title="下">
+                        <img src="Asserts/img/yuntai/icon_down.png" style="width: 45px;height: 45px;">
+                    </a>
+
+                    <a href="javascript:void(0)" onmouseup="PTZControl(0)" onmousedown="PTZControl(5)" title="右下">
+                        <img src="Asserts/img/yuntai/icon_rightdown.png" style="width: 45px;height: 45px;">
+                    </a>
+                </div>
+
+
+
+            </div>
+
+        </div>
+         {{/if}}
+     
+
+
+    </div>
+</div>
+
+
+<!--      新建预案-->
+<div class="modal hide" id="addTour" style="top:20%;z-index:9999" data-backdrop='static'>
+    <div class="modal-header">
+        <a href="#" class="close" {{action 'removeIframe_ActiveX'}}>×</a>
+        <h4>新建预案</h4>
+    </div>
+
+
+    <div class="modal-body">
+        <form class="form-horizontal" style="position: relative;" >
+            <div class="control-group">
+                <label class="control-label" >预案名称<i style="color:red">*</i></label>
+                <div class="controls">
+                    {{view App.ValidataionTextField id="tour_name" valueBinding="tour_name" type="text"}}
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" >预案描述</label>
+                <div class="controls">
+                    {{input  value=tour_descp type="text"}}
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="form-actions modal-footer" style="text-align: center;">
+        <button {{action "validateAddTour"}} class="btn-success" >确定</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button  class="btn-info" {{action 'removeIframe_ActiveX'}}>取消</button>
+
+    </div>
+</div>

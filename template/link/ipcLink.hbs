@@ -1,0 +1,70 @@
+
+<div class=" padding-zero container-fluid">
+
+    <div class="row-fluid span2 " style="padding-top:30px;">
+        <div class="row-fluid span12">
+            <ul class="nav nav-tabs nav-stacked sidebar-nav main-menu">
+                {{#if ipcLinkRule}}
+                <li class="ajax-link active ">
+                    {{#link-to 'ipcLink'}}接入IPC{{/link-to}}
+                </li>
+                 {{/if}}
+                {{#if clientLinkRule}}
+                <li class="ajax-link ">
+                    {{#link-to 'clientLink'}}接入客户端{{/link-to}}
+                </li>
+                    {{/if}}
+            </ul>
+        </div>
+    </div>
+    <div class="row-fluid span10" style="padding-top:20px;" >
+        <div class="box">
+            <div class="input-inline" style="padding-top:18px;display: none;" data-original-title>
+
+                <label class="help-inline">&nbsp;&nbsp;开始时间:  </label>
+                <input class="starttime" type="text"     data-date-format=" yyyy-mm-dd hh:ii"  data-date-viewMode="1" data-date-minViewMode="0"  data-date-weekStart="1">
+                <label class="help-inline">结束时间:  </label>
+                <input class="endtime" type="text"     data-date-format="yyyy-mm-dd hh:ii"  data-date-viewMode="1" data-date-minViewMode="0"  data-date-weekStart="1">
+                &nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-success" style="vertical-align: top;"><i class="icon-search icon-white"></i> 查询</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            </div>
+            <div class="box-content">
+                <table class="table table-striped table-bordered bootstrap-datatable datatable table-hover table-condensed">
+                    <thead>
+                    <tr>
+                        <th>ip</th>
+                        <th>mediaPort</th>
+                        <th>name</th>
+                        <th>port</th>
+                        <th>regTime</th>
+                        <th>sid</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each paginatedContent}}
+                        <tr>
+                            <td class="center">
+                                <a href="#" data-toggle="tooltip"  {{bind-attr title=ip}}>{{ip}}</a>
+                            </td>
+                            <td class="center">{{mediaPort}}</td>
+                            <td class="center">{{name}}</td>
+                            <td class="center">{{port}}</td>
+                            <td class="center">{{regTime}}</td>
+                            <td class="center">{{sid}}</td>
+
+                        </tr>
+                    {{/each}}
+
+                    </tbody>
+                </table>
+                <!--分页控件-->
+                {{page-number totalPages=totalPages count=count page=page currentTotalCounts=currentTotalCounts perPage=perPage selectPage="selectPage" loadMore="loadMore"}}
+
+            </div>
+
+        </div><!--/span-->
+
+    </div>
+</div>

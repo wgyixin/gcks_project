@@ -1,0 +1,473 @@
+body {
+    color: #000;
+    font-size: 16px;
+    font-family: "Helvetica Neue",Helvetica,STheiti,微软雅黑,宋体,Arial,Tahoma,sans-serif,serif;
+    min-width: 1366px;
+    max-width: 1920px;
+}
+audio, canvas, video {
+    display: inline-block;
+}
+
+.box{
+    border: 1px solid #DEDEDE;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    margin-top: 10px;
+    margin-bottom: 10px ;
+    box-shadow: 0 0 10px rgba(189, 189, 189, 0.4);
+    -webkit-box-shadow: 0 0 10px rgba(189, 189, 189, 0.4);
+    -moz-box-shadow: 0 0 10px rgba(189, 189, 189, 0.4);
+}
+
+.box-header{
+    border:none;
+    padding-top:5px;
+    border-bottom: 1px solid #DEDEDE;
+    border-radius:3px 3px 0 0;
+    -webkit-border-radius:3px 3px 0 0;
+    -moz-border-radius:3px 3px 0 0;
+    height:12px;
+    min-height:12px;
+    margin-bottom: 0;
+    cursor:move;
+    font-weight:bold;
+    font-size:16px;
+    background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(0,0,0,0.1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(0,0,0,0.1)));
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,0,0,0.1) 100%);
+    background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,0,0,0.1) 100%);
+    background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,0,0,0.1) 100%);
+    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(0,0,0,0.1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#1a000000',GradientType=0 );
+
+}
+
+.box-header h2{
+    font-size:15px;
+    width:auto;
+    clear:none;
+    float:left;
+    line-height:10px;
+    white-space: nowrap;
+}
+/*.box-header h3{*/
+/*font-size:13px;*/
+/*width:auto;*/
+/*clear:none;*/
+/*float:left;*/
+/*line-height:25px;*/
+/*white-space: nowrap;*/
+/*}*/
+/*.box-header h2 > i{*/
+/*margin-top:1px;*/
+/*}*/
+
+.box-content{
+    padding:10px;
+}
+
+.well {
+    min-height: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #eee;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.well blockquote {
+    border-color: #ddd;
+    border-color: rgba(0, 0, 0, 0.15);
+}
+.well-large {
+    padding: 24px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+.well-small {
+    padding: 9px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.box-icon{
+    float:right;
+}
+.box-icon a{
+    clear:none;
+    float:left;
+    margin:0 2px;
+    height: 18px;
+    width:5px;
+    margin-top: -1px;
+}
+.box-icon a i{
+    margin-left:-4.5px;
+}
+.box-content{
+    padding:10px;
+}
+
+
+.btn-round{
+    border-radius: 40px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    font-size:12px;
+    padding-top:4px;
+}
+
+
+
+.sidebar-nav {
+    border-radius: 5px;
+    box-shadow: 0 0 10px #BDBDBD;
+    margin-bottom: 0;
+    min-height: 0;
+    padding-bottom: 0;
+}
+/*左边栏*/
+.nav-stacked > .active > a, .nav-stacked > .active > a:hover {
+    /*background-color: #666666;*/
+    /*color: #FFFFFF;*/
+    background-color: #FFFFFF;
+    color: #555555;
+}
+
+/*左侧栏的背景色*/
+.nav-stacked{
+    background-color: #f5f5f5;
+}
+
+.nav-stacked > li:hover{
+   margin-left: -5px;
+
+}
+
+/*更改左侧菜单滑动效果*/
+.main-menu > .ajax-link > a:hover {
+background-color: #f4f4f4;/*#FFFFFF;*/
+color: #555555;
+box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125) inset;
+text-decoration: none;
+margin-left: -5px;
+
+}
+
+
+/*导航条*/
+.main-link{
+    /*border:1px solid #FFFFFF;*/
+}
+
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+    background-color: #E5E5E5;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125) inset;
+    color: #555555;
+    text-decoration: none;
+}
+.nav-top > li:hover {
+    background-color: #E5E5E5;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125) inset;
+    color: #555555;
+    text-decoration: none;
+}
+ .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus{
+    background-color: #E5E5E5 ;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.125) inset;
+    color: #555555;
+    text-decoration: none;
+
+     background-image: -webkit-gradient(linear,0 0,0 100%,from(#08c),to(#E5E5E5));
+      background-image: -webkit-linear-gradient(top,#08c,#0077b3);
+     background-image: -o-linear-gradient(top,#08c,#0077b3);
+      background-image: linear-gradient(to bottom,#08c,#0077b3);
+     background-repeat: repeat-x;
+}
+
+ /*去掉导航的框*/
+
+.navbar-static-top .navbar-inner{
+    /*去掉边框*/
+    -webkit-box-shadow:0 1px 10px rgba(0,0,0,0);
+    box-shadow:0 1px 10px rgba(0,0,0,0);
+    border-width:0 0;
+
+}
+.navbar-inner{
+    background-color:transparent;
+    /*下面去掉渐变色*/
+    background-image:-webkit-gradient(linear,0 0,0 100%,from(#f8f8f8),to(#f8f8f8));
+    background-image: -webkit-linear-gradient(top,#f8f8f8,#f8f8f8);
+    background-image:linear-gradient(to bottom,#f8f8f8,#f8f8f8);
+    background-repeat:repeat-x
+
+}
+/*添加渐变色*/
+.gcks-navbar{
+    /*background-color:transparent;*/
+    /*下面去掉渐变色*/
+    /*background-image:-webkit-gradient(linear,0 0,0 100%,from(#f2f2f2),to(#f8f8f8));*/
+    /*background-image: -webkit-linear-gradient(top,#f2f2f2,#f8f8f8);*/
+    /*background-image:linear-gradient(to bottom,#f2f2f2,#f8f8f8);*/
+    /*background-repeat:repeat-x*/
+}
+
+
+.pagination {
+    /*margin: 20px 0;*/
+    text-align: center;
+}
+
+
+/*ztree字体为黑色*/
+.ztree li a{
+    color: #000000;
+}
+/*.ztree li a {padding:1px 3px 0 0; margin:0; cursor:pointer; height:17px; color: #000000; background-color: transparent;*/
+    /*text-decoration:none; vertical-align:top; display: inline-block}*/
+/*
+面包屑 状态栏
+*/
+/*.breadcrumb {*/
+    /*background-color: #FBFBFB;*/
+    /*background-color: #fafafa;*/
+    /*background-image: -moz-linear-gradient(center top , #FFFFFF, #F5F5F5);*/
+    /*background-repeat: repeat-x;*/
+    /*border: 1px solid #DDDDDD;*/
+    /*border-radius: 3px;*/
+    /*box-shadow: 0 1px 0 #FFFFFF inset;*/
+    /*list-style: none outside none;*/
+    /*margin: 0 0 18px;*/
+    /*padding: 7px 14px;*/
+/*}*/
+
+
+.open-btn{
+    background:url(../img/gcks/open-demo.png) no-repeat left top;
+    height:48px;
+    width:48px;
+}
+.float-open {
+    opacity: .6;
+    background:url(../img/gcks/open-demo.png) no-repeat left top;
+    height: 48px;
+    left: -70px;
+    width: 48px;
+    z-index: 99;
+    /*top: 206px;*/
+    _margin-top: 206px;
+    /*border: 2px solid #e1e1e1;*/
+}
+
+.float-close:hover, .float-open:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+.float-news {
+    /* height: 380px; */
+    /* left: 0px; */
+    padding: 10px 15px;
+    width: 300px;
+    z-index: 100;
+    top: 117px;
+    margin-top: 117px;
+}
+.width70{
+    width:70%;
+}
+.ipcInput{
+    width:96%;
+}
+.ipcLabel{
+    text-align: center;
+    width:10%;
+}
+.ipcTextArea{
+    width:265%;
+}
+.width30{
+    width:30%;
+}
+.width8{
+    width:8%;
+}
+.width3{
+    width:3%;
+}
+
+.width10{
+    width:10%;
+}
+.userinfo-form{
+    /*width: 600px;*/
+    margin-left: 30%;
+}
+
+
+/*录制计划的那个选择,必须加上plan line只针对于录制计划，如果是line会修改到地图中ztree的样式 导致重叠*/
+
+.plan .line
+{
+    height: 25px;
+    line-height: 25px;
+    margin: 3px;
+}
+.imp
+{
+    padding-left: 25px;
+}
+.col
+{
+    width: 50px;
+}
+/*录制计划的弹出框 大小  和 间距*/
+.corn-modal{
+    top:15%;
+    width:680px;
+    height:600px;
+}
+.corn-modal-body {
+    position: relative;
+    max-height: 670px;
+    overflow-y: auto;
+    padding-left: 10px;
+    padding-top: 40px;
+    padding-right: 10px;
+}
+
+/*ipc管理的弹出框 大小  和 间距*/
+.ipc-modal{
+    top: 1%;
+    width: 600px;
+    height: 695px;
+}
+.ipc-modal-body {
+    position: relative;
+    max-height: 670px;
+    overflow-y: auto;
+    padding-left: 10px;
+    padding-top: 40px;
+    padding-right: 10px;
+}
+
+
+/*视频监控 历史视频 左边的资源列表*/
+.ipc-resource-div{
+    width:120%;
+    height: 500px;
+    overflow: auto;
+    /*background-color: #f5f5f5;*/
+    border:1px solid #DEDEDE;
+}
+
+.ipc-resource-search{
+
+    width: 80%;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.search-div{
+    width:120%;
+    height: 100px;
+    border:1px solid #DEDEDE;
+    /*background-color: #f5f5f5;*/
+    margin-bottom: 20px;
+}
+
+/*向右小按键*/
+.caret.right{
+    /*向右*/
+    border-left: 4px solid #000000;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    /*居中 下调*/
+    vertical-align: middle;
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
+/*取消 tooltip的外框 和 颜色*/
+.tooltip{
+    border-style: none;
+    /*背景色设置为透明*/
+    background-color:transparent;
+
+}
+/*增大 组件距离 是的弹出的错误信息不遮盖*/
+.control-group {
+    margin-bottom: 28px;
+}
+.form-horizontal .control-group {
+    margin-bottom: 40px;
+}
+/*增大 模态框的 距离顶部的间距*/
+.modal-body{
+    padding-top: 40px;
+}
+
+
+
+/*除了导航条外的 界面内容  左右间隔=0*/
+.padding-zero{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/*ipc在线状态*/
+.ipc-online{
+
+    background: url(../img/gcks/icon-online.png) no-repeat;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    /*position: absolute;*/
+    /*top: 5px;*/
+    /*right: 5px;*/
+    /*overflow: hidden;*/
+    /*background-position: -408px -96px; 用于显示一张图片的部分图像,其它的隐藏*/
+}
+.ipc-offline{
+    background: url(../img/gcks/icon-offline.png) no-repeat;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+
+}
+hr{
+    margin: 5px 0;
+}
+
+/*wizard相关*/
+/*.form-horizontal .controls {*/
+    /*margin-left:80px;*/
+/*}*/
+
+/*.form-horizontal .control-label {*/
+    /*float: left;*/
+    /*width: 60px;*/
+    /*padding-top: 5px;*/
+    /*text-align: right;*/
+/*}*/
+
+/*页尾*/
+footer {
+    /*position: relative;*/
+    border-top: 1px solid #e5e5e5;
+    padding: 20px 0;
+    /*background-color: #fff;*/
+    /*color: #666666;*/
+    margin-top:20px;
+    /*height: 40px;*/
+}

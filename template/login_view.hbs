@@ -1,0 +1,51 @@
+<div id="login">
+    <div id="top-nav">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <span id="i18n-0">
+                        <h2>视频综合管理应用平台</h2>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="modal" id="login" style="top:30%">
+            <div class="modal-header">
+                <h4>视频管理系统</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div id="hint" class="control-group hide">
+                        <div class="alert alert-error">
+                            <div class="controls">
+                                <p>invalid username or password</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">用户名</label>
+
+                        <div class="controls">
+                            {{view view.loginTextField valueBinding="username"}}
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">密码</label>
+
+                        <div class="controls">
+                            {{view view.passTextField type="password" valueBinding="password" }}
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" {{action 'login'}}>登录</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{outlet}}

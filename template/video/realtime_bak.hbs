@@ -1,0 +1,177 @@
+<div class="container-fluid">
+<div class="row-fluid" id="realtime">
+    <div class="span2">
+        <form class="navbar-search">
+            {{input type="text" value=username class="search-query span7"}}
+            <!--<input type="text" class="search-query span7">-->
+
+
+            <!--<i class="icon-search icon-large"></i>-->
+            <button class="btn btn-primary btn-mini" type="button">搜索</button>
+            <a href="#search" data-toggle="modal" class="btn btn-primary btn-mini">高级</a>
+        </form>
+        <br>
+        <br>
+        <br>
+        <div style="height:130px">
+            <ul>
+                <li>
+                    深圳市
+                </li>
+                <li>
+                    上海市
+                </li>
+
+            </ul>
+        </div>
+        <img src="Asserts/img/sample1.png">
+        <!--<img src="../img/sample2.png">-->
+
+        <div class="tabbable">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab" style="font-size: 13px;">云台</a></li>
+                <li><a href="#tab2" data-toggle="tab" style="font-size: 13px;">轮巡</a></li>
+                <li><a href="#tab3" data-toggle="tab" style="font-size: 13px;">预案</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane  active" id="tab1">
+                    <img src="Asserts/img/yuntai.png">
+                    <div class="input-inline">
+                        <label for="speed" class="help-inline">速度：</label>
+                        <select id="speed" class="span4">
+                            <option value="slowly">慢</option>
+                            <option value="littleSlow">较慢</option>
+                            <option value="normally">中</option>
+                            <option value="littleQuick">较快</option>
+                            <option value="quickly">快</option>
+                        </select>
+                    </div>
+                    <button class="btn" id="lock">锁定</button>
+
+                </div>
+                <div class="tab-pane" id="tab2">
+                    <textarea rows="6"></textarea>
+                    <br>
+                    <label for="interval-time" class="help-inline">轮巡间隔：</label>
+                    <input class="input-mini" id="interval-time"><label class="help-inline">秒</label>
+                    <br>
+                    <br>
+                    <button class="btn" id="start">开始</button>
+                    <button class="btn" id="end">结束</button>
+                    <button class="btn" id="savaAsPrev">存为预案</button>
+                </div>
+                <div class="tab-pane" id="tab3">
+                    <label class="help-inline">当前选择：</label><input class="span7"/>
+                    <br>
+                    <br>
+                    <textarea rows="6"></textarea>
+                    <br>
+                    <button class="btn" id="new">新建</button>
+                    <button class="btn" id="delete">删除</button>
+                    <button class="btn" >开始</button>
+                    <button class="btn" >结束</button>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="span10">
+
+        <br>
+        <!--<img src="Asserts/img/vedio.png">-->
+
+        <div class="row-fluid sortable">
+
+
+            <div class="box span4">
+                <div class="box-header well">
+                    <h2><i class="icon-th"></i> Tabs</h2>
+                    <div class="box-icon">
+                        <a href="#" class="btn btn-setting btn-round"><i class="icon-cog "></i></a>
+                        <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+                        <a href="#" class="btn btn-close btn-round">  <i class="icon-remove"> </i> </a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <ul class="nav nav-tabs" id="myTab">
+                        <li class="active"><a href="#info">Info</a></li>
+                        <li><a href="#custom">Custom</a></li>
+                        <li><a href="#messages">Messages</a></li>
+                    </ul>
+
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane active" id="info">
+                            <h3>Charisma <small>a fully featued template</small></h3>
+                        </div>
+                        <div class="tab-pane" id="custom">
+                            <h3>Custom <small>small text</small></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.</p>
+                        </div>
+                        <div class="tab-pane" id="messages">
+                            <h3>Messages <small>small text</small></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
+
+
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="modal hide" id="search" style="top:30%;">
+        <div class="modal-header">
+            <a href="#" class="close" data-dismiss="modal">×</a>
+            <h4>高级搜索</h4>
+        </div>
+
+        <div class="modal-body">
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" >地址</label>
+                    <div class="controls">
+                        <input type="text">
+                        <!--<p class="help-block">请输入用户名</p>-->
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" >编号</label>
+                    <div class="controls">
+                        <input type="text">
+                        <!--<p class="help-block">请输入密码</p>-->
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="form-actions modal-footer" style="text-align: center;">
+            <button type="submit" class="btn btn-success ">确定</button>
+        </div>
+    </div>
+</div>
+
+<br>
+<br><br><br><br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="modal-footer">
+    <footer class="pager">
+        Copyright &copy; 北京国创科视有限公司
+    </footer>
+</div>
+    </div>
+

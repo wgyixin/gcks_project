@@ -1,0 +1,48 @@
+<div class="padding-zero container-fluid">
+    <div class="row-fluid span2 " style="padding-top:30px;">
+        <div class="row-fluid span12">
+            <ul class="nav nav-tabs nav-stacked sidebar-nav main-menu">
+
+                {{#if usersRule}}
+                    <li class="ajax-link">
+                        {{#link-to 'user'}}用户管理{{/link-to}}
+                    </li>
+                {{/if}}
+                {{#if userGroupsRule}}
+                    <li class="ajax-link">
+                        {{#link-to 'usergroup'}}用户组管理{{/link-to}}
+                    </li>
+                {{/if}}
+                {{#if videoLifeCycleRule}}
+                    <li class="ajax-link  active">
+                        {{#link-to 'videoLife'}}视频生命周期管理{{/link-to}}
+                    </li>
+                {{/if}}
+                {{#if areasRule}}
+                    <li class="ajax-link  ">
+                        {{#link-to 'area'}}区域管理{{/link-to}}
+                    </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+    <div class="row-fluid span10" style="padding-top:20px;">
+        <div class="box">
+            <form style="position: relative;text-align:center;margin-top: 40px;">
+                {{#each}}
+                    <div class="control-group ">
+                        <label class="control-label help-inline ipcLabel">{{name}}</label>
+                        <div class="controls help-inline input-append">
+                            {{view App.ValidataionTextField  id=id valueBinding="configvalue"}}
+                            <span class="add-on">天</span>
+                        </div>
+                    </div>
+                {{/each}}
+                <div >
+                    <button class="btn" {{action 'cancel'}}>取消</button>
+                    <button class="btn btn-primary" {{action 'validate'}}>保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

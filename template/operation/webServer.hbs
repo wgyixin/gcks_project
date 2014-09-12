@@ -1,0 +1,43 @@
+<div class="padding-zero container-fluid">
+    <div class="row-fluid span2 " style="padding-top:30px;">
+        <div class="row-fluid span12 ">
+        <ul class="nav nav-tabs nav-stacked sidebar-nav main-menu">
+
+            {{#if serviceRule}}
+                <li class="ajax-link ">
+                    {{#link-to 'service'}}服务{{/link-to}}
+                </li>
+            {{/if}}
+            {{#if cnRule}}
+                <li class="ajax-link ">
+                    {{#link-to 'cn'}}CN{{/link-to}}
+                </li>
+            {{/if}}
+            {{#if rnRule}}
+                <li class="ajax-link">
+                    {{#link-to 'rn'}}RN{{/link-to}}
+                </li>
+            {{/if}}
+            <!--<li class="ajax-link">-->
+            <!--{{#link-to 'database'}}数据库{{/link-to}}-->
+            <!--</li>-->
+            <!--<li class="ajax-link">-->
+            <!--{{#link-to 'webServer'}}Web Server{{/link-to}}-->
+            <!--</li>-->
+            {{#if hostsRule}}
+                <li class="ajax-link">
+                    {{#link-to 'mainframe'}}主机{{/link-to}}
+                </li>
+            {{/if}}
+            {{#if logRule}}
+                <li class="ajax-link">
+                    {{#link-to 'logs'}}日志{{/link-to}}
+                </li>
+            {{/if}}
+        </ul>
+        </div>
+    </div>
+    <div class="row-fluid span10">
+        <h1 class="page-header">this is  service page</h1>
+    </div>
+</div>
